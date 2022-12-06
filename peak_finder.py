@@ -58,7 +58,6 @@ b = list(set(b))
 
 def peak(a):
     start = datetime.now()
-    print(a)
     while len(a) > 1:
         if len(a) == 2:
             if a[0] > a[1]:
@@ -74,25 +73,18 @@ def peak(a):
             if a[int(n / 2 - 1)] > a[int(n / 2 + 1)]:
                 print("look left")
                 a = a[0:int(n / 2)]
-                print(a)
             else:
                 print("look right")
                 a = a[int(n / 2):]
-                print(a)
         elif a[int(n / 2)] < a[int(n / 2 - 1)]:
             print("look left")
             a = a[0:int(n / 2)]
-            print(a)
         elif a[int(n / 2)] < a[int(n / 2 + 1)]:
             print("look right")
             a = a[int(n / 2):]
-            print(a)
         else:
-            print(a)
             a.pop(int(n / 2) - 1)
             a.pop(int(n / 2) + 1)
-            # print(f"middle one is peak {a[int(n / 2)]}")
-            # return print(datetime.now() - start)
 
 
 peak(b)
