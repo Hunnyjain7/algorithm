@@ -48,7 +48,63 @@ class Heap:
         self.heap.remove(value)
         return self.heap
 
+    # def heapify(self):
+    #     self.heap.pop(0)
+    #     self.heap.append(self.heap[0])
+    #     last = len(self.heap) - 1
+    #     curr = last
+    #     while curr > 0:
+    #         left_child = 2 * curr
+    #         right_child = 2 * curr + 1
+    #         if curr < right_child:
+    #             try:
+    #                 rc = self.heap[right_child]
+    #                 lc = self.heap[left_child]
+    #                 if rc and lc:
+    #                     if rc > lc:
+    #                         self.heap[right_child], self.heap[left_child] = self.heap[left_child], self.heap[
+    #                             right_child]
+    #                     if self.heap[curr] > self.heap[right_child]:
+    #                         self.heap[right_child], self.heap[curr] = self.heap[curr], self.heap[right_child]
+    #
+    #                     print(f"here {self.heap[curr]}")
+    #                     curr -= 1
+    #
+    #             except IndexError:
+    #                 print("f")
+    #                 curr -= 1
+    #         else:
+    #             curr -= 1
+    #
+    #     return self.heap
 
-heap = Heap([14, 19, 16, 21, 26, 19, 68, 65, 30])
+    def heapify(self):
+        self.heap.pop(0)
+        self.heap.append(self.heap[0])
+
+        curr = (len(self.heap) - 1 // 2)
+        while curr > 0:
+            first = curr
+            while 2 * first < len(self.heap):
+                left_child = 2 * first
+                right_child = 2 * first + 1
+                if self.heap[right_child] < self.heap[left_child] and right_child < len(self.heap) and self.heap[
+                    first] > \
+                        self.heap[right_child]:
+                    self.heap[right_child], self.heap[first] = self.heap[first], self.heap[right_child]
+                    first = right_child
+                elif self.heap[right_child] > self.heap[left_child]:
+                    self.heap[left_child], self.heap[first] = self.heap[first], self.heap[left_child]
+                    first = left_child
+                else:
+                    break
+            curr -= 1
+        self.heap.pop(0)
+        return self.heap
+
+
+# heap = Heap([14, 19, 16, 21, 26, 19, 68, 65, 30])
+heap = Heap([60, 50, 80, 40, 30, 10, 70, 20, 90])
 # print(heap.push(17))
-print(heap.pop(14))
+# print(heap.pop(14))
+print(heap.heapify())
