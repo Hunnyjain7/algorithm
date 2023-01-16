@@ -6,6 +6,8 @@ for i in array:
         data[i] += 1
     else:
         data[i] = 1
+
+
 # print(data)
 
 
@@ -52,6 +54,22 @@ class HashMap:
             index += 1
             index = index % self.capacity
 
+    def remove(self, key):
+        if not self.get(key):
+            return
+
+        index = self.hash(key)
+        while True:
+            if self.map[index].key == key:
+                # Removing an element using open-addressing actually causes a bug,
+                # because we may create a hole in the list, and our get() may
+                # stop searching early when it reaches this hole.
+                self.map[index] = None
+                self.size -= 1
+                return
+            index += 1
+            index = index % self.capacity
+
     def rehash(self):
         self.capacity = 2 * self.capacity
         new_map = []
@@ -64,7 +82,6 @@ class HashMap:
         for pair in olp_map:
             if pair:
                 self.put(pair.key, pair.val)
-        return
 
 
 hash_map = HashMap()
