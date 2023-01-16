@@ -6,7 +6,7 @@ for i in array:
         data[i] += 1
     else:
         data[i] = 1
-print(data)
+# print(data)
 
 
 class Pair:
@@ -45,7 +45,7 @@ class HashMap:
                 self.size += 1
                 if self.size >= self.capacity // 2:
                     self.rehash()
-                    return
+                return
             elif self.map[index].key == key:
                 self.map[index].val = val
                 return
@@ -61,7 +61,17 @@ class HashMap:
         olp_map = self.map
         self.map = new_map
         self.size = 0
-
         for pair in olp_map:
             if pair:
                 self.put(pair.key, pair.val)
+        return
+
+
+hash_map = HashMap()
+hash_map.put("Alice", "Chicago")
+# hash_map.put("Brad", "Settle")
+# hash_map.put("Rahul", "Delhi")
+print(hash_map.rehash())
+print(hash_map.size)
+print(hash_map.capacity)
+print(hash_map.map)
