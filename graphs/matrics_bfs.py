@@ -16,14 +16,12 @@ def bfs(grid):
                 return length
             neighbors = [[0, 1], [0, -1], [1, 0], [-1, 0]]
             for dr, dc in neighbors:
-                if min(dr + r, dc + c) or r + dr == rows or c + dc == cols or \
-                        (r + dr, c + dc) in visit or grid[r + dr][c + dc] == 1:
+                if (min(dr + r, dc + c) < 0 or r + dr == rows or c + dc == cols or (r + dr, c + dc) in visit or
+                        grid[r + dr][c + dc] == 1):
                     continue
                 queue.append((r + dr, c + dc))
                 visit.add((r + dr, c + dc))
         length += 1
-
-    return length
 
 
 matrics = [[0, 0, 0, 0],
