@@ -21,6 +21,20 @@ def partition(arr, left, right):
     return i
 
 
+# def quick_sort(array, s, e):
+#     if e - s + 1 <= 1:
+#         return
+#     pivot = array[e]
+#     insert = s
+#     for i in range(s, e):
+#         if array[i] < pivot:
+#             array[insert], array[i] = array[i], array[insert]
+#             insert += 1
+#     array[insert], array[e] = array[e], array[insert]
+#     quick_sort(array, s, insert - 1)
+#     quick_sort(array, insert + 1, e)
+#     return array
+
+
 a = [9683, 1154, 8494, 9560, 3268, 7814, 9956, 654, 4141, 5449, 6317, 5526, 5978, 9749, 3977, 9315, 5253, 2387, 4151]
-quick_sort(a, 0, len(a) - 1)
-print(a)
+print(quick_sort(a, 0, len(a) - 1))
