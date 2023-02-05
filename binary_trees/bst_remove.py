@@ -1,8 +1,8 @@
-def min_node_val(root):
+def min_root_val(root):
     curr = root
     while curr and root.left:
         curr = root.left
-    return curr
+    return curr.val
 
 
 def remove(root, value):
@@ -19,6 +19,7 @@ def remove(root, value):
         elif not root.right:
             return remove(root.left, root.val)
         else:
-            _min = min_node_val(root.right)
-            root.val = _min.val
-            return remove(root.left, _min.val)
+            min_root_value = min_root_val(root.right)
+            root.val = min_root_value
+            root.right = remove(root.right, min_root_value)
+    return root

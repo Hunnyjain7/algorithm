@@ -10,3 +10,9 @@ def binary_search_tree(root, target):
         return binary_search_tree(root.left, target)
     elif target == root.val:
         return print("Target found")
+
+
+root_ = Node(27)
+root_.insert(14)
+root_.insert(35)
+binary_search_tree(root_, 14)

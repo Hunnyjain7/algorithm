@@ -1,6 +1,6 @@
 def search_in_array(array, target):
     """
-    :param array [It should be an sorted array:
+    :param array It should be an sorted array:
     :param target:
     :return: searched value
     """
@@ -8,7 +8,6 @@ def search_in_array(array, target):
 
     while l <= r:
         mid = (l + r) // 2
-        print(l, mid, r)
         if target > array[mid]:
             l = mid + 1
         elif target < array[mid]:
