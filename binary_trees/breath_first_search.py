@@ -1,9 +1,9 @@
 from collections import deque
+from utils import Node
 
 
 def search(root):
     queue = deque()
-
     if root:
         queue.append(root)
 
@@ -18,3 +18,12 @@ def search(root):
             if curr.right:
                 queue.append(curr.right)
         level += 1
+
+
+root_ = Node(27)
+root_.insert(14)
+root_.insert(35)
+root_.insert(3)
+root_.insert(15)
+root_.insert(45)
+print(search(root_))
