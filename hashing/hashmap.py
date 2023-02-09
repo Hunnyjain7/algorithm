@@ -1,11 +1,11 @@
 array = ["a", "b", "c", "b", "d", "a"]
 
 data = {}
-for i in array:
-    if i in data.keys():
-        data[i] += 1
+for j in array:
+    if j in data.keys():
+        data[j] += 1
     else:
-        data[i] = 1
+        data[j] = 1
 
 
 # print(data)
@@ -47,10 +47,10 @@ class HashMap:
                 self.size += 1
                 if self.size >= self.capacity // 2:
                     self.rehash()
-                return
+                return self.map
             elif self.map[index].key == key:
                 self.map[index].val = val
-                return
+                return self.map
             index += 1
             index = index % self.capacity
 
@@ -61,9 +61,9 @@ class HashMap:
         index = self.hash(key)
         while True:
             if self.map[index].key == key:
-                # Removing an element using open-addressing actually causes a bug,
-                # because we may create a hole in the list, and our get() may
-                # stop searching early when it reaches this hole.
+                """ Removing an element using open-addressing actually causes a bug,
+                 because we may create a hole in the list, and our get() 
+                 may stop searching early when it reaches this hole."""
                 self.map[index] = None
                 self.size -= 1
                 return
@@ -71,24 +71,17 @@ class HashMap:
             index = index % self.capacity
 
     def rehash(self):
-        self.capacity = 2 * self.capacity
-        new_map = []
-        for i in range(self.capacity):
-            new_map.append(None)
-
-        olp_map = self.map
-        self.map = new_map
-        self.size = 0
-        for pair in olp_map:
-            if pair:
-                self.put(pair.key, pair.val)
+        capacity = self.capacity
+        self.capacity = 2 * capacity
+        for i in range(capacity, self.capacity):
+            self.map.append(None)
 
 
 hash_map = HashMap()
-hash_map.put("Alice", "Chicago")
+print(hash_map.put("Alice", "Chicago"))
 # hash_map.put("Brad", "Settle")
 # hash_map.put("Rahul", "Delhi")
-print(hash_map.rehash())
-print(hash_map.size)
-print(hash_map.capacity)
-print(hash_map.map)
+# print(hash_map.rehash())
+# print(hash_map.size)
+# print(hash_map.capacity)
+# print(hash_map.map)
