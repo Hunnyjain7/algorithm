@@ -1,6 +1,5 @@
 # This memoization and caching technique is also called as Top Down Dynamic Programming
 def memoization(n, cache):
-    print(cache)
     if n <= 1:
         return n
     if n in cache:
