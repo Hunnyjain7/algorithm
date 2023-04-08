@@ -1,4 +1,6 @@
+# Memoization - Time and Space: O(n * m)
 def memoization(r, c, rows, cols, cache):
+    """Top Down Dynamic Programming Approach."""
     if r == rows or c == cols:
         return 0
     if cache[r][c] > 0:
@@ -9,9 +11,9 @@ def memoization(r, c, rows, cols, cache):
     return cache[r][c]
 
 
-# print(memoization(0, 0, 4, 4, [[0] * 4 for i in range(4)]))
-
+# Dynamic Programming - Time: O(n * m), Space:
 def dp(rows, cols):
+    """Bottom Up Dynamic Programming Approach."""
     prev_row = [0] * 4
 
     for r in range(rows - 1, -1, -1):
@@ -24,4 +26,6 @@ def dp(rows, cols):
     return prev_row[0]
 
 
-print(dp(4, 4))
+if __name__ == '__main__':
+    # print(memoization(0, 0, 4, 4, [[0] * 4 for i in range(4)]))
+    print(dp(4, 4))

@@ -1,3 +1,4 @@
+# Brute Force - Time: O(2 ^ (n + m)), Space: O(n + m)
 def brute_force(r, c, rows, cols):
     if r == rows or c == cols:
         return 0
