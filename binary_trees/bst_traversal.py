@@ -5,7 +5,7 @@ from utils import Node
 def in_order(root_node):
     if not root_node:
         return
-    a = root_node.val
+    print(root_node.val)
     in_order(root_node.left)
     print(root_node.val)
     in_order(root_node.right)

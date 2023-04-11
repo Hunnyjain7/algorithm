@@ -52,7 +52,7 @@ def memoization_knapsack(profit, weight, capacity):
 # Where n is the number of items & m is the capacity.
 def dp(profit, weight, capacity):
     profit_len = len(profit)
-    cache = [[0] * (capacity + 1) for i in range(profit_len)]
+    cache = [[0] * (capacity + 1) for _ in range(profit_len)]
 
     # Fill the first column and row to reduce edge cases
     for i in range(len(cache)):

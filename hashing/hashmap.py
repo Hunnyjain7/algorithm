@@ -43,7 +43,7 @@ class HashMap:
 
         while True:
             if self.map[index] is None:
-                self.map[index] = Pair(key, val)
+                self.map[index] = Pair(key, val)  # noqa
                 self.size += 1
                 if self.size >= self.capacity // 2:
                     self.rehash()

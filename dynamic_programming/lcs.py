@@ -26,12 +26,12 @@ def dfs2(s1, s2, i1, i2, cache):
 
 
 def memoization_lcs(s1, s2):
-    cache = [[-1] * len(s2) for i in range(len(s1))]
+    cache = [[-1] * len(s2) for _ in range(len(s1))]
     return dfs2(s1, s2, 0, 0, cache)
 
 
 def dp(s1, s2):
-    cache = [[0] * (len(s2) + 1) for i in range((len(s1) + 1))]
+    cache = [[0] * (len(s2) + 1) for _ in range((len(s1) + 1))]
 
     for r in range(len(s1)):
         for c in range(len(s2)):

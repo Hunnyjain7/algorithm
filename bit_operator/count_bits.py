@@ -9,7 +9,7 @@ def count_bits(n):
 print(count_bits(23))
 
 
-# count numbers of 1 bits
+# count numbers of 1 bit's
 def count_1_bits(n):
     count = 0
     while n > 0:
