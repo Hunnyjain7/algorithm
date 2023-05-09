@@ -26,7 +26,7 @@ Space complexity: O(1)
 """
 
 
-def sortColors(nums):
+def sort(nums):
     low, mid, high = 0, 0, len(nums) - 1
     while mid <= high:
         if nums[mid] == 0:
@@ -42,4 +42,4 @@ def sortColors(nums):
 
 
 if __name__ == '__main__':
-    print(sortColors([2, 0, 2, 1, 1, 0]))
+    print(sort([2, 0, 2, 1, 1, 0]))
