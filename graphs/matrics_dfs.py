@@ -1,5 +1,6 @@
 # dfs Depth First search
 
+# Count paths (backtracking)
 def dfs(grid, r, c, visit):
     rows, cols = len(grid), len(grid[0])
 
@@ -19,6 +20,7 @@ def dfs(grid, r, c, visit):
     return count
 
 
+# Matrix (2D Grid)
 matrics = [[0, 0, 0, 0],
            [1, 1, 0, 0],
            [0, 0, 0, 1],

@@ -1,9 +1,12 @@
 class GraphNode:
+    """GraphNode used for adjacency list"""
+
     def __init__(self, val):
         self.val = val
         self.neighbors = []
 
 
+# Given directed edges, build an adjacency list
 edges = [["A", "B"], ["B", "C"], ["B", "E"], ["C", "E"], ["E", "D"]]
 
 adj_list = {}

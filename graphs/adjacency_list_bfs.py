@@ -1,9 +1,9 @@
-# Shortest path from node to target
 from collections import deque
 
 from graphs.adjacency_list import adj_list
 
 
+# Shortest path from node to target
 def bfs(node, target, adja_list):
     length = 0
     visit = set()
@@ -25,4 +25,4 @@ def bfs(node, target, adja_list):
     return length
 
 
-print(bfs("A", "E", adj_list))
+print(bfs("A", "D", adj_list))

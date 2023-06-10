@@ -1,7 +1,7 @@
-# Count path of back_tracking
 from graphs.adjacency_list import adj_list
 
 
+# Count path of back_tracking
 def dfs(node, target, adja_list, visit):
     if node in visit:
         return 0
@@ -17,6 +17,4 @@ def dfs(node, target, adja_list, visit):
     return count
 
 
-print(dfs("A", "E", adj_list, set()))
-
-
+print(dfs("A", "D", adj_list, set()))

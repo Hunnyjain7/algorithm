@@ -1,6 +1,7 @@
 from collections import deque
 
 
+# Shortest path from top left to bottom right
 def bfs(grid):
     rows, cols = len(grid), len(grid[0])
     visit = set()
@@ -24,6 +25,7 @@ def bfs(grid):
         length += 1
 
 
+# Matrix (2D Grid)
 matrics = [[0, 0, 0, 0],
            [1, 1, 0, 0],
            [0, 0, 0, 1],
