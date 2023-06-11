@@ -5,7 +5,6 @@ from utils import Node
 def in_order(root_node):
     if not root_node:
         return
-    print(root_node.val)
     in_order(root_node.left)
     print(root_node.val)
     in_order(root_node.right)
@@ -15,15 +14,15 @@ def pre_order(root_node):
     if not root_node:
         return
     print(root_node.val)
-    in_order(root_node.left)
-    in_order(root_node.right)
+    pre_order(root_node.left)
+    pre_order(root_node.right)
 
 
 def post_order(root_node):
     if not root_node:
         return
-    in_order(root_node.left)
-    in_order(root_node.right)
+    post_order(root_node.left)
+    post_order(root_node.right)
     print(root_node.val)
 
 

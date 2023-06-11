@@ -20,6 +20,58 @@ def search(root):
         level += 1
 
 
+def level_order(root):
+    queue = deque()
+    res = []
+    if root:
+        res.append([root.val])
+        queue.append(root)
+        while queue:
+            curr = []
+            nex = deque()
+            while queue:
+                hp = queue.popleft()
+                if hp.left:
+                    nex.append(hp.left)
+                    curr.append(hp.left.val)
+                if hp.right:
+                    nex.append(hp.right)
+                    curr.append(hp.right.val)
+            if curr:
+                res.append(curr)
+            queue = nex
+    return res
+
+
+def zigzag_level_order(root):
+    queue = deque()
+    res = []
+    if root:
+        res.append([root.val])
+        queue.append(root)
+        right = True
+        while queue:
+            curr = []
+            nex = deque()
+            while queue:
+                hp = queue.popleft()
+                if hp.left:
+                    nex.append(hp.left)
+                    curr.append(hp.left.val)
+                if hp.right:
+                    nex.append(hp.right)
+                    curr.append(hp.right.val)
+            if curr:
+                if right:
+                    curr = curr[::-1]
+                    right = False
+                else:
+                    right = True
+                res.append(curr)
+            queue = nex
+    return res
+
+
 root_ = Node(27)
 root_.insert(14)
 root_.insert(35)
