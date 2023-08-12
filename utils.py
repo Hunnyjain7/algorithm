@@ -4,17 +4,43 @@ class Node:
         self.left = None
         self.right = None
 
-    def insert(self, data):
+    @staticmethod
+    def min_root_val(root):
+        curr = root
+        while curr and curr.left:
+            curr = curr.left
+        return curr.val
+
+    def insert(self, val):
         if self.val:
-            if data < self.val:
+            if val < self.val:
                 if self.left is None:
-                    self.left = Node(data)
+                    self.left = Node(val)
                 else:
-                    self.left.insert(data)
-            elif data > self.val:
+                    self.left.insert(val)
+            elif val > self.val:
                 if self.right is None:
-                    self.right = Node(data)
+                    self.right = Node(val)
                 else:
-                    self.right.insert(data)
+                    self.right.insert(val)
         else:
-            self.val = data
+            self.val = val
+
+    def remove(self, root, val):
+        if not root:
+            return
+
+        if val > root.val:
+            root.right = self.remove(root.right, val)
+        elif val < root.val:
+            root.left = self.remove(root.left, val)
+        else:
+            if not root.left:
+                return root.right
+            elif not root.right:
+                return root.left
+            else:
+                min_val = self.min_root_val(root.right)
+                root.val = min_val
+                root.right = self.remove(root.right, min_val)
+        return root
