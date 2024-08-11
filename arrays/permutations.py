@@ -28,11 +28,11 @@ def permutations(nums):
 
     for i in nums:
         nexts = []
-        for j in perms:
-            for k in range(len(j) + 1):
-                j_copy = j.copy()
-                j_copy.insert(k, i)
-                nexts.append(j_copy)
+        for perm in perms:
+            for k in range(len(perm) + 1):
+                perm_copy = perm.copy()
+                perm_copy.insert(k, i)
+                nexts.append(perm_copy)
         perms = nexts
     return perms
 

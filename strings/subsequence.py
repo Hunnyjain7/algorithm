@@ -1,13 +1,14 @@
-def sub_sequence(st, sub_str=""):
-    if len(st) == 0:
-        if sub_str:
-            sub_sequences.add(sub_str)
-        return
-    sub_sequence(st[:-1], sub_str + st[-1])
-    sub_sequence(st[:-1], sub_str)
+def get_all_subsequence(_string, subsequence, i):
+    if i != len(_string):
+        get_all_subsequence(_string, subsequence, i + 1)
+
+        # include first character
+        subsequence += _string[i]
+        get_all_subsequence(_string, subsequence, i + 1)
+    sub_sequences.add(subsequence)
     return sub_sequences
 
 
 if __name__ == '__main__':
     sub_sequences = set()
-    print(sub_sequence("abc"))
+    print(get_all_subsequence("abc", "", 0))
